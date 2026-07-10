@@ -603,55 +603,58 @@ void SuperTwisting::addGui(mc_control::MCGlobalController & ctl)
 
 void SuperTwisting::addLog(mc_control::MCGlobalController & ctl)
 {
-  ctl.controller().logger().addLogEntry("SuperTwisting_p", [this]() { return p; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_p", [this]() { return p; });
   ctl.controller().logger().addLogEntry("SuperTwisting_p_hat", [this]() { return p_hat; });
   ctl.controller().logger().addLogEntry("SuperTwisting_p_error", [this]() { return p_error; });
   ctl.controller().logger().addLogEntry("SuperTwisting_tau_ext_hat", [this]() { return tau_ext_hat; });
   ctl.controller().logger().addLogEntry("SuperTwisting_tau_ext_hat_dot", [this]() { return tau_ext_hat_dot; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_gamma", [this]() { return gamma; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_gamma", [this]() { return gamma; });
   ctl.controller().logger().addLogEntry("SuperTwisting_tau_ext", [this]() { return tau_ext; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_gamma1", [this]() { return gamma1; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_gamma2", [this]() { return gamma2; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_alpha1", [this]() { return alpha1; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_alpha2", [this]() { return alpha2; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_gamma1", [this]() { return gamma1; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_gamma2", [this]() { return gamma2; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_alpha1", [this]() { return alpha1; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_alpha2", [this]() { return alpha2; });
   ctl.controller().logger().addLogEntry("SuperTwisting_c", [this]() { return c; });
   ctl.controller().logger().addLogEntry("SuperTwisting_c_third_order", [this]() { return c_third_order; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_gamma1_third_order", [this]() { return gamma1_third_order; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_gamma2_third_order", [this]() { return gamma2_third_order; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_gamma3_third_order", [this]() { return gamma3_third_order; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_gamma1_third_order", [this]() { return gamma1_third_order; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_gamma2_third_order", [this]() { return gamma2_third_order; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_gamma3_third_order", [this]() { return gamma3_third_order; });
 
-  ctl.controller().logger().addLogEntry("SuperTwisting_second_order_obstacle_detected",
-                                        [this]() { return obstacle_detected_secondOrder_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_second_order_threshold_high",
-                                        [this]() { return threshold_high_secondOrder_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_second_order_threshold_low",
-                                        [this]() { return threshold_low_secondOrder_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_second_order_threshold_offset",
-                                        [this]() { return threshold_offset_secondOrder_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_second_order_threshold_filtering",
-                                        [this]() { return threshold_filtering_secondOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_second_order_obstacle_detected",
+  //                                       [this]() { return obstacle_detected_secondOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_second_order_threshold_high",
+  //                                       [this]() { return threshold_high_secondOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_second_order_threshold_low",
+  //                                       [this]() { return threshold_low_secondOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_second_order_threshold_offset",
+  //                                       [this]() { return threshold_offset_secondOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_second_order_threshold_filtering",
+  //                                       [this]() { return threshold_filtering_secondOrder_; });
+  ctl.controller().logger().addLogEntry("SuperTwisting_p", [this]() { return p; });
+  ctl.controller().logger().addLogEntry("SuperTwisting_gamma", [this]() { return gamma; });
+  ctl.controller().logger().addLogEntry("SuperTwisting_dt", [this]() { return dt_; });
 
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_obstacle_detected",
-                                        [this]() { return obstacle_detected_thirdOrder_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_threshold_high",
-                                        [this]() { return threshold_high_thirdOrder_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_threshold_low",
-                                        [this]() { return threshold_low_thirdOrder_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_threshold_offset",
-                                        [this]() { return threshold_offset_thirdOrder_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_threshold_filtering",
-                                        [this]() { return threshold_filtering_thirdOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_obstacle_detected",
+  //                                       [this]() { return obstacle_detected_thirdOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_threshold_high",
+  //                                       [this]() { return threshold_high_thirdOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_threshold_low",
+  //                                       [this]() { return threshold_low_thirdOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_threshold_offset",
+  //                                       [this]() { return threshold_offset_thirdOrder_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_threshold_filtering",
+  //                                       [this]() { return threshold_filtering_thirdOrder_; });
 
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_obstacle_detected",
-                                        [this]() { return obstacle_detected_thirdOrder_tau_ext_dot_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_threshold_high",
-                                        [this]() { return threshold_high_thirdOrder_tau_ext_dot_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_threshold_low",
-                                        [this]() { return threshold_low_thirdOrder_tau_ext_dot_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_threshold_offset",
-                                        [this]() { return threshold_offset_thirdOrder_tau_ext_dot_; });
-  ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_threshold_filtering",
-                                        [this]() { return threshold_filtering_thirdOrder_tau_ext_dot_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_obstacle_detected",
+  //                                       [this]() { return obstacle_detected_thirdOrder_tau_ext_dot_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_threshold_high",
+  //                                       [this]() { return threshold_high_thirdOrder_tau_ext_dot_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_threshold_low",
+  //                                       [this]() { return threshold_low_thirdOrder_tau_ext_dot_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_threshold_offset",
+  //                                       [this]() { return threshold_offset_thirdOrder_tau_ext_dot_; });
+  // ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_dot_threshold_filtering",
+  //                                       [this]() { return threshold_filtering_thirdOrder_tau_ext_dot_; });
 
   ctl.controller().logger().addLogEntry("SuperTwisting_third_order_tau_ext_hat",
                                         [this]() { return tau_ext_hat_third_order; });

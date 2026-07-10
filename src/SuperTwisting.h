@@ -92,6 +92,7 @@ private:
   Eigen::VectorXd tau_m;
   Eigen::VectorXd tau_ext_ft_sensor; // GroundTruth
   Eigen::VectorXd tau_ext_hat; // Estimated external torque without the FT_sensor
+
   Eigen::VectorXd tau_ext_hat_ft_sensor; // Estimated external torque with the FT_sensor
   Eigen::VectorXd tau_ext_hat_dot; // Estimated external torque derivative without the FT_sensor
   Eigen::VectorXd tau_ext; // Estimated external torque of all the system

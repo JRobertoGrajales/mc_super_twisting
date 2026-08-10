@@ -347,9 +347,9 @@ void SuperTwisting::computeThirdOrder(mc_control::MCGlobalController & controlle
   }
   Eigen::VectorXd x1 = p_error_third_order.cwiseAbs().array().pow(2.0 / 3.0);
   x1 = x1.cwiseProduct(Sign(p_error_third_order));
-  Eigen::VectorXd p_hat_dot =
+  Eigen::VectorXd p_hat_dot_third_order =
       gamma + gamma1_third_order * x1 + alpha1 * (p_error_third_order) + tau_ext_hat_third_order;
-  p_hat_third_order += p_hat_dot * dt_;
+  p_hat_third_order += p_hat_dot_third_order * dt_;
 
   Eigen::VectorXd x2 = p_error_third_order.cwiseAbs().array().pow(1.0 / 3.0);
   x2 = x2.cwiseProduct(Sign(p_error_third_order));
